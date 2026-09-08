@@ -1,0 +1,159 @@
+<mxfile host="app.diagrams.net" version="21.0.0">
+  <diagram id="hindustani-music-agent" name="Hindustani Music App Architecture">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="2" value="Hindustani Music Agent — System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="20" width="720" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ── USER ── -->
+        <mxCell id="3" value="User / Singer" style="shape=mxgraph.general.person2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="200" width="60" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ── MICROPHONE ── -->
+        <mxCell id="4" value="Microphone" style="shape=mxgraph.cisco.computers_and_peripherals.microphone;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="60" y="420" width="60" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ── STREAMLIT UI ── -->
+        <mxCell id="5" value="&lt;b&gt;Streamlit UI&lt;/b&gt; (app.py)&#xa;&#xa;  - Pitch / Scale Selector&#xa;  - Swara Map Display&#xa;  - Play Buttons per Swara&#xa;  - Aaroh / Avaroh Playback&#xa;  - Streaming Chat Interface&#xa;  - Visual Harmonium Keyboard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=left;verticalAlign=top;spacingLeft=12;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="200" y="180" width="240" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- ── SWARA MAPPER ── -->
+        <mxCell id="6" value="&lt;b&gt;swara_mapper.py&lt;/b&gt;&#xa;Pitch to Swara Mapping&#xa;12-tone + Komal / Tivra variants" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="540" y="90" width="210" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ── AUDIO PLAYER ── -->
+        <mxCell id="7" value="&lt;b&gt;audio_player.py&lt;/b&gt;&#xa;Harmonium Sample Playback&#xa;(pygame)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="540" y="200" width="210" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ── AGENT ── -->
+        <mxCell id="8" value="&lt;b&gt;agent.py&lt;/b&gt;&#xa;Claude AI Singing Guide&#xa;(Streaming responses)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="540" y="310" width="210" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ── PITCH DETECTOR ── -->
+        <mxCell id="9" value="&lt;b&gt;pitch_detector.py&lt;/b&gt;&#xa;Mic Input + Frequency Analysis&#xa;(librosa + sounddevice)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="540" y="420" width="210" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ── SAMPLES FOLDER ── -->
+        <mxCell id="10" value="&lt;b&gt;/samples&lt;/b&gt;&#xa;Harmonium WAV Files&#xa;C, C#, D, D#, E, F, F#&#xa;G, G#, A, A#, B (12 files)" style="shape=mxgraph.flowchart.stored_data;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="840" y="185" width="180" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- ── ANTHROPIC CLAUDE API ── -->
+        <mxCell id="11" value="&lt;b&gt;Anthropic Claude API&lt;/b&gt;&#xa;claude-sonnet-4-6&#xa;(External Cloud Service)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="840" y="300" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ── .ENV ── -->
+        <mxCell id="12" value="&lt;b&gt;.env&lt;/b&gt;&#xa;ANTHROPIC_API_KEY" style="shape=mxgraph.flowchart.stored_data;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="840" y="405" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- ══ EDGES ══ -->
+
+        <!-- User → Streamlit UI -->
+        <mxCell id="20" value="selects pitch&#xa;/ asks questions" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;fillColor=none;" edge="1" source="3" target="5" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Mic → pitch_detector -->
+        <mxCell id="21" value="audio stream" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;fillColor=none;" edge="1" source="4" target="9" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- pitch_detector → Streamlit (feedback) -->
+        <mxCell id="22" value="swara feedback" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;fillColor=none;dashed=1;" edge="1" source="9" target="5" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="510" y="455" />
+              <mxPoint x="510" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Streamlit → swara_mapper -->
+        <mxCell id="23" value="pitch input" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;fillColor=none;" edge="1" source="5" target="6" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Streamlit → audio_player -->
+        <mxCell id="24" value="play note" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;fillColor=none;" edge="1" source="5" target="7" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Streamlit → agent -->
+        <mxCell id="25" value="user query" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;fillColor=none;" edge="1" source="5" target="8" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Streamlit → pitch_detector (trigger) -->
+        <mxCell id="26" value="start listening" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;fillColor=none;" edge="1" source="5" target="9" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- audio_player → samples -->
+        <mxCell id="27" value="reads WAV" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;fillColor=none;" edge="1" source="7" target="10" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- agent → Claude API -->
+        <mxCell id="28" value="API call (stream)" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;fillColor=none;" edge="1" source="8" target="11" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- agent → .env -->
+        <mxCell id="29" value="reads API key" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;fillColor=none;dashed=1;" edge="1" source="8" target="12" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- swara_mapper → Streamlit (return) -->
+        <mxCell id="30" value="swara notes" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;fillColor=none;dashed=1;" edge="1" source="6" target="5" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="510" y="115" />
+              <mxPoint x="510" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ── LEGEND ── -->
+        <mxCell id="40" value="Legend" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="590" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="Streamlit UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="60" y="625" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="42" value="Python Modules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="200" y="625" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="43" value="External / Storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="350" y="625" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="44" value="Data Flow" style="edgeStyle=orthogonalEdgeStyle;fillColor=none;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="640" as="sourcePoint" />
+            <mxPoint x="610" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="45" value="Return / Feedback" style="edgeStyle=orthogonalEdgeStyle;fillColor=none;fontSize=10;dashed=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="640" y="640" as="sourcePoint" />
+            <mxPoint x="740" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

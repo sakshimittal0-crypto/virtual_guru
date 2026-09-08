@@ -1,0 +1,276 @@
+<mxfile host="app.diagrams.net" version="21.0.0">
+  <diagram id="hindustani-music-agent-v2" name="Hindustani Music App — Detailed Architecture">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- TITLE -->
+        <mxCell id="t1" value="Hindustani Music Agent — Detailed System Architecture" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="980" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- LAYER BACKGROUND BANDS -->
+        <mxCell id="bg1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#bdbdbd;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="130" y="70" width="1420" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="bg2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fffde7;strokeColor=#f9a825;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="130" y="250" width="1420" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="bg3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#43a047;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="130" y="500" width="1420" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="bg4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffebee;strokeColor=#e53935;opacity=40;" vertex="1" parent="1">
+          <mxGeometry x="130" y="750" width="1420" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- LAYER LABELS -->
+        <mxCell id="l1" value="USER / DEVICE" style="text;html=1;strokeColor=#bdbdbd;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="20" y="95" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="l2" value="PRESENTATION LAYER&#xa;(Streamlit)" style="text;html=1;strokeColor=#f9a825;fillColor=#fffde7;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="20" y="275" width="110" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="l3" value="CORE LOGIC LAYER&#xa;(Python Modules)" style="text;html=1;strokeColor=#43a047;fillColor=#e8f5e9;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="20" y="525" width="110" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="l4" value="DATA / EXTERNAL" style="text;html=1;strokeColor=#e53935;fillColor=#ffebee;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="20" y="775" width="110" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════ -->
+        <!-- LAYER 1: USER / DEVICES            -->
+        <!-- ═══════════════════════════════════ -->
+
+        <mxCell id="user" value="User / Singer" style="shape=mxgraph.general.person2;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="190" y="90" width="60" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mic" value="Microphone&#xa;(sounddevice)" style="shape=mxgraph.cisco.computers_and_peripherals.microphone;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=10;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="980" y="90" width="60" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="speaker" value="Speaker / Output&#xa;(pygame mixer)" style="shape=mxgraph.cisco.computers_and_peripherals.speaker;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=10;verticalLabelPosition=bottom;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="560" y="90" width="60" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════ -->
+        <!-- LAYER 2: STREAMLIT UI              -->
+        <!-- ═══════════════════════════════════ -->
+
+        <mxCell id="ui_bar" value="&lt;b&gt;app.py — Streamlit Application&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9a825;strokeColor=#e65100;fontColor=#ffffff;fontSize=12;align=center;verticalAlign=middle;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="258" width="1400" height="28" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ui_selector" value="&lt;b&gt;Pitch / Scale Selector&lt;/b&gt;&#xa;&#xa;st.selectbox: Sa = C, C#, D…B&#xa;Indian names: Safed 1-7 / Kali 1-5&#xa;Updates session_state.selected_pitch" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f9a825;fontSize=10;verticalAlign=top;spacingTop=6;spacingLeft=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="150" y="296" width="220" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ui_swaramap" value="&lt;b&gt;Swara Map Display&lt;/b&gt;&#xa;&#xa;Sa · Re · Ga · Ma · Pa · Dha · Ni&#xa;Each swara: note name + freq (Hz)&#xa;Komal / Tivra variants highlighted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f9a825;fontSize=10;verticalAlign=top;spacingTop=6;spacingLeft=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="385" y="296" width="220" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ui_keyboard" value="&lt;b&gt;Visual Harmonium Keyboard&lt;/b&gt;&#xa;&#xa;12-key SVG/HTML keyboard&#xa;Active swara key highlighted&#xa;Shows Sa root position" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f9a825;fontSize=10;verticalAlign=top;spacingTop=6;spacingLeft=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="620" y="296" width="220" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ui_playback" value="&lt;b&gt;Playback Controls&lt;/b&gt;&#xa;&#xa;[Play] button per swara&#xa;[Aaroh] full scale ascending&#xa;[Avaroh] full scale descending" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f9a825;fontSize=10;verticalAlign=top;spacingTop=6;spacingLeft=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="855" y="296" width="220" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ui_chat" value="&lt;b&gt;AI Chat Interface&lt;/b&gt;&#xa;&#xa;st.chat_input: user message&#xa;st.chat_message: AI response&#xa;Streams tokens as they arrive" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f9a825;fontSize=10;verticalAlign=top;spacingTop=6;spacingLeft=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="296" width="220" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ui_pitchfb" value="&lt;b&gt;Live Pitch Feedback&lt;/b&gt;&#xa;&#xa;Detected: &quot;Ga&quot; (E4, 330 Hz)&#xa;Status: Flat by 15 cents&#xa;Target swara highlighted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f9a825;fontSize=10;verticalAlign=top;spacingTop=6;spacingLeft=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1325" y="296" width="220" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Session State -->
+        <mxCell id="ui_session" value="&lt;b&gt;Streamlit Session State&lt;/b&gt;&#xa;selected_pitch: str&#xa;active_swaras: dict&#xa;chat_history: list[dict]&#xa;is_listening: bool" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#e65100;fontSize=10;verticalAlign=top;spacingTop=6;spacingLeft=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="150" y="418" width="220" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════ -->
+        <!-- LAYER 3: CORE LOGIC MODULES        -->
+        <!-- ═══════════════════════════════════ -->
+
+        <mxCell id="mod_mapper" value="&lt;b&gt;swara_mapper.py&lt;/b&gt;&#xa;&#xa;get_swaras(sa_pitch: str) → dict&#xa;get_note_name(swara, pitch) → str&#xa;get_komal_tivra_variants() → list&#xa;indian_pitch_name(note: str) → str&#xa;freq_for_note(note: str) → float" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=10;verticalAlign=top;spacingTop=6;spacingLeft=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="150" y="515" width="250" height="145" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mod_audio" value="&lt;b&gt;audio_player.py&lt;/b&gt;&#xa;&#xa;load_samples(path: str) → dict&#xa;play_note(note: str) → None&#xa;play_scale_aaroh(swaras: list) → None&#xa;play_scale_avaroh(swaras: list) → None&#xa;stop() → None&#xa;[uses pygame.mixer]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=10;verticalAlign=top;spacingTop=6;spacingLeft=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="450" y="515" width="250" height="145" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mod_agent" value="&lt;b&gt;agent.py&lt;/b&gt;&#xa;&#xa;build_system_prompt(swaras) → str&#xa;chat(history: list, msg: str) → stream&#xa;stream_response(stream) → Generator&#xa;format_swara_context(swaras) → str&#xa;[uses anthropic.Anthropic()]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=10;verticalAlign=top;spacingTop=6;spacingLeft=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="750" y="515" width="270" height="145" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mod_pitch" value="&lt;b&gt;pitch_detector.py&lt;/b&gt;&#xa;&#xa;start_stream() / stop_stream()&#xa;capture_buffer() → np.ndarray&#xa;detect_frequency(buf) → float (Hz)&#xa;map_to_swara(hz, swaras) → str&#xa;cents_deviation(detected, target) → int" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=10;verticalAlign=top;spacingTop=6;spacingLeft=8;align=left;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="515" width="270" height="145" as="geometry" />
+        </mxCell>
+
+        <!-- Audio Pipeline Detail -->
+        <mxCell id="pipeline" value="&lt;b&gt;Audio Processing Pipeline&lt;/b&gt;&#xa;(pitch_detector internals)&#xa;&#xa;sounddevice.InputStream&#xa;→ float32 numpy buffer&#xa;→ librosa.yin(sr=44100)&#xa;→ Hz → nearest semitone&#xa;→ swara name + cents offset" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede7f6;strokeColor=#7b1fa2;fontSize=10;spacingLeft=8;spacingTop=6;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="1390" y="510" width="150" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════ -->
+        <!-- LAYER 4: EXTERNAL / DATA           -->
+        <!-- ═══════════════════════════════════ -->
+
+        <mxCell id="ext_samples" value="&lt;b&gt;/samples/&lt;/b&gt;&#xa;C.wav · C#.wav · D.wav · D#.wav&#xa;E.wav · F.wav · F#.wav · G.wav&#xa;G#.wav · A.wav · A#.wav · B.wav&#xa;(12 harmonium WAV files)" style="shape=mxgraph.flowchart.stored_data;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#c62828;fontSize=10;spacingLeft=8;spacingTop=6;align=left;" vertex="1" parent="1">
+          <mxGeometry x="400" y="762" width="270" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ext_api" value="&lt;b&gt;Anthropic Claude API&lt;/b&gt;&#xa;Model: claude-sonnet-4-6&#xa;Endpoint: messages.stream()&#xa;Transport: HTTPS / SSE&#xa;Returns: streamed text chunks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#c62828;fontSize=10;spacingLeft=8;spacingTop=6;align=left;" vertex="1" parent="1">
+          <mxGeometry x="750" y="762" width="270" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ext_env" value="&lt;b&gt;.env&lt;/b&gt;&#xa;ANTHROPIC_API_KEY=sk-ant-...&#xa;(loaded via python-dotenv)" style="shape=mxgraph.flowchart.stored_data;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#616161;fontColor=#333333;fontSize=10;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="762" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ═══════════════════════════════════ -->
+        <!-- EDGES                              -->
+        <!-- ═══════════════════════════════════ -->
+
+        <mxCell id="e_user_sel" value="select Sa pitch" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;" edge="1" source="user" target="ui_selector" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_user_play" value="click play" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;" edge="1" source="user" target="ui_playback" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_user_chat" value="type question" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;" edge="1" source="user" target="ui_chat" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_mic" value="float32 audio buffer&#xa;(44100 Hz sample rate)" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;" edge="1" source="mic" target="mod_pitch" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_speaker" value="WAV audio playback" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;dashed=1;" edge="1" source="mod_audio" target="speaker" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_sel_mapper" value="sa_pitch: 'C'" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;" edge="1" source="ui_selector" target="mod_mapper" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_mapper_display" value="{Sa:C, Re:D, Ga:E,&#xa;Ma:F, Pa:G, Dha:A, Ni:B}" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;dashed=1;" edge="1" source="mod_mapper" target="ui_swaramap" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_mapper_session" value="active_swaras dict" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;dashed=1;" edge="1" source="mod_mapper" target="ui_session" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_map_kbd" value="active key index" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;dashed=1;" edge="1" source="ui_swaramap" target="ui_keyboard" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_play_audio" value="note name / swara list" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;" edge="1" source="ui_playback" target="mod_audio" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_audio_samples" value="open('G.wav', 'rb')" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;" edge="1" source="mod_audio" target="ext_samples" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_chat_agent" value="message + swara context +&#xa;conversation history" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;" edge="1" source="ui_chat" target="mod_agent" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_agent_chat" value="streamed text tokens" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;dashed=1;strokeColor=#e65100;" edge="1" source="mod_agent" target="ui_chat" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="885" y="490" />
+              <mxPoint x="885" y="470" />
+              <mxPoint x="1200" y="470" />
+              <mxPoint x="1200" y="406" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_session_agent" value="chat_history list" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;" edge="1" source="ui_session" target="mod_agent" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="260" y="445" />
+              <mxPoint x="260" y="480" />
+              <mxPoint x="885" y="480" />
+              <mxPoint x="885" y="515" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_agent_api" value="messages[] + system_prompt&#xa;HTTPS stream request" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;" edge="1" source="mod_agent" target="ext_api" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_agent_env" value="load_dotenv() / ANTHROPIC_API_KEY" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;dashed=1;" edge="1" source="mod_agent" target="ext_env" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_pitch_fb" value="swara name + Hz + cents offset" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;dashed=1;" edge="1" source="mod_pitch" target="ui_pitchfb" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_fb_chat" value="pitch error event&#xa;(triggers AI tip)" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;dashed=1;" edge="1" source="ui_pitchfb" target="ui_chat" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_pitch_pipeline" value="internals" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;dashed=1;strokeColor=#7b1fa2;" edge="1" source="mod_pitch" target="pipeline" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e_ui_pitch" value="start / stop listening" style="edgeStyle=orthogonalEdgeStyle;fontSize=9;" edge="1" source="ui_pitchfb" target="mod_pitch" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1435" y="406" />
+              <mxPoint x="1435" y="470" />
+              <mxPoint x="1205" y="470" />
+              <mxPoint x="1205" y="515" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════ -->
+        <!-- LEGEND                             -->
+        <!-- ═══════════════════════════════════ -->
+
+        <mxCell id="leg0" value="Legend" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="890" width="80" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" value="UI Component" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f9a825;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="150" y="918" width="130" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="Session / State" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0b2;strokeColor=#e65100;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="295" y="918" width="130" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="Python Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#388e3c;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="440" y="918" width="130" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" value="External / Storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#c62828;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="585" y="918" width="140" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" value="Internal Detail" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede7f6;strokeColor=#7b1fa2;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="740" y="918" width="130" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_a1" value="Request / Call" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="890" y="932" as="sourcePoint" />
+            <mxPoint x="1000" y="932" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg_a2" value="Return / Feedback" style="edgeStyle=orthogonalEdgeStyle;dashed=1;fontSize=10;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1020" y="932" as="sourcePoint" />
+            <mxPoint x="1140" y="932" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
