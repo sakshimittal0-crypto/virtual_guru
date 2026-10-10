@@ -27,9 +27,17 @@ export async function getAudioContext() {
  * a stop() to release the mic. Fails loudly if permission is denied —
  * callers should catch and show the user a message, not swallow it.
  */
-export async function startMicAnalyser({ fftSize = 2048 } = {}) {
+export async function startMicAnalyser({ fftSize = 8192 } = {}) {
   const ctx = await getAudioContext();
-  const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  // Browser voice processing (echo cancel / noise suppression / AGC) is
+  // tuned for speech and distorts sustained singing pitch, so turn it off.
+  const stream = await navigator.mediaDevices.getUserMedia({
+    audio: {
+      echoCancellation: false,
+      noiseSuppression: false,
+      autoGainControl: false,
+    },
+  });
   const source = ctx.createMediaStreamSource(stream);
   const analyser = ctx.createAnalyser();
   analyser.fftSize = fftSize;
