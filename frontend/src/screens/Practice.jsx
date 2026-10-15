@@ -5,32 +5,30 @@ import DroneControls from "../components/DroneControls.jsx";
 import { startMicAnalyser, readWaveform } from "../lib/audio/audioEngine.js";
 import { detectPitch, createPitchSmoother } from "../lib/audio/pitchDetector.js";
 
-// Western note names and their frequencies (C3 = 130.81 Hz)
+// Western note names and their frequencies (C4 = 261.63 Hz, A4 = 440 Hz standard)
 const PITCH_OPTIONS = [
-  { note: "C", freq: 130.81 },
-  { note: "C#", freq: 138.59 },
-  { note: "D", freq: 146.83 },
-  { note: "D#", freq: 155.56 },
-  { note: "E", freq: 164.81 },
-  { note: "F", freq: 174.61 },
-  { note: "F#", freq: 185.00 },
-  { note: "G", freq: 196.00 },
-  { note: "G#", freq: 207.65 },
-  { note: "A", freq: 220.00 },
-  { note: "A#", freq: 233.08 },
-  { note: "B", freq: 246.94 },
+  { note: "C", freq: 261.63 },
+  { note: "C#", freq: 277.18 },
+  { note: "D", freq: 293.66 },
+  { note: "D#", freq: 311.13 },
+  { note: "E", freq: 329.63 },
+  { note: "F", freq: 349.23 },
+  { note: "F#", freq: 369.99 },
+  { note: "G", freq: 392.00 },
+  { note: "G#", freq: 415.30 },
+  { note: "A", freq: 440.00 },
+  { note: "A#", freq: 466.16 },
+  { note: "B", freq: 493.88 },
 ];
 
-// "Sing & Practise" — the main riyaaz screen. Mic button + live pitch
-// feedback + tanpura/tabla drone, per the spec doc.
 export default function Practice() {
   const [listening, setListening] = useState(false);
   const [pitch, setPitch] = useState({ note: null, cents: 0, hz: null });
   const [error, setError] = useState(null);
   const [selectedSa, setSelectedSa] = useState(PITCH_OPTIONS[0]); // Default to C
 
-  const sessionRef = useRef(null); // { stop, rafId }
-  const saRef = useRef(selectedSa); // read inside the rAF loop without stale closures
+  const sessionRef = useRef(null);
+  const saRef = useRef(selectedSa);
   saRef.current = selectedSa;
 
   const stopListening = useCallback(() => {
@@ -45,7 +43,6 @@ export default function Practice() {
     setPitch({ note: null, cents: 0 });
   }, []);
 
-  // Release the mic if the screen unmounts mid-session.
   useEffect(() => stopListening, [stopListening]);
 
   const startListening = async () => {
@@ -59,7 +56,6 @@ export default function Practice() {
       let last = 0;
       const tick = (now) => {
         if (session.cancelled) return;
-        // ~30 analyses/sec is plenty for singing and keeps the readout calm
         if (now - last >= 33) {
           last = now;
           const freq = detectPitch(readWaveform(analyser), audioContext.sampleRate);
@@ -88,9 +84,7 @@ export default function Practice() {
           {PITCH_OPTIONS.map((option) => (
             <button
               key={option.note}
-              onClick={() => {
-                setSelectedSa(option);
-              }}
+              onClick={() => setSelectedSa(option)}
               className={`rounded-lg py-2 text-sm font-semibold transition-colors ${
                 selectedSa.note === option.note
                   ? "bg-maroon text-white"
@@ -103,7 +97,8 @@ export default function Practice() {
         </div>
       </div>
 
-      <DroneControls />
+      {/* Drone Controls */}
+      <DroneControls selectedSa={selectedSa} />
 
       <PitchMeter note={pitch.note} cents={pitch.cents} hz={pitch.hz} />
 
